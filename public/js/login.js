@@ -58,9 +58,12 @@ export const login = async (email, password) => {
 
 export const logout = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/v1/users/logout", {
-      method: "GET",
-    });
+    const res = await fetch(
+      "https://natours-node-xh4p.onrender.com/api/v1/users/logout",
+      {
+        method: "GET",
+      }
+    );
 
     const data = await res.json();
 
