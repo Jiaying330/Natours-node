@@ -6,8 +6,8 @@ export const updateSettings = async (data, type) => {
   try {
     const url =
       type === "password"
-        ? `http://localhost:3000/api/v1/users/updateMyPassword`
-        : `http://localhost:3000/api/v1/users/updateMe`;
+        ? `https://natours-node-xh4p.onrender.com/api/v1/users/updateMyPassword`
+        : `https://natours-node-xh4p.onrender.com/api/v1/users/updateMe`;
 
     const res = await fetch(url, {
       method: "PATCH",
