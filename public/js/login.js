@@ -6,7 +6,7 @@ import axios from "axios";
 export const login = async (email, password) => {
   try {
     const res = await fetch(
-      "http://localhost:3000/api/v1/users/login",
+      "https://natours-node-xh4p.onrender.com/users/login",
       // 'http://127.0.0.1:3000/api/v1/users/login',
       {
         method: "POST",
