@@ -1,18 +1,18 @@
 /* eslint-disable */
-import { showAlert } from './alerts';
+import { showAlert } from "./alerts";
 
 // type is either 'password' or 'data'
 export const updateSettings = async (data, type) => {
   try {
     const url =
-      type === 'password'
-        ? 'http://localhost:3000/api/v1/users/updateMyPassword'
-        : 'http://localhost:3000/api/v1/users/updateMe';
+      type === "password"
+        ? `http://localhost:3000/api/v1/users/updateMyPassword`
+        : `http://localhost:3000/api/v1/users/updateMe`;
 
     const res = await fetch(url, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(Object.fromEntries(data)),
       // body: JSON.stringify(data),
@@ -20,18 +20,14 @@ export const updateSettings = async (data, type) => {
 
     const responseData = await res.json();
 
-    if (res.ok && responseData.status === 'success') {
-      showAlert(
-        'success',
-        `${type.toUpperCase()} updated successfully!`,
-      );
+    if (res.ok && responseData.status === "success") {
+      showAlert("success", `${type.toUpperCase()} updated successfully!`);
     } else {
       throw new Error(
-        responseData.message ||
-          'An error occurred while updating.',
+        responseData.message || "An error occurred while updating."
       );
     }
   } catch (err) {
-    showAlert('error', err.message);
+    showAlert("error", err.message);
   }
 };
